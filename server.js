@@ -9,6 +9,9 @@ const io = socketIo(server);
 
 // Serve static files
 app.use(express.static('public'));
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+})
 
 // Listen for connections
 io.on('connection', (socket) => {
